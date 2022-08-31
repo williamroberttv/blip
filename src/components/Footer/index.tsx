@@ -4,7 +4,14 @@ const Footer: React.FC = () => {
   const date = new Date();
   const year = date.getFullYear();
   return (
-    <Flex h="84px" w="100%" justifyContent="center" bottom="0" position="fixed">
+    <Flex
+      h="84px"
+      w="100%"
+      justifyContent="center"
+      position="fixed"
+      bottom="0"
+      background="#ffffff"
+    >
       <Flex w="80%" flexDir="column" justifyContent="center">
         <Divider colorScheme="#B9CBD3" />
         <Text

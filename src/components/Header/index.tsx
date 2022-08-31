@@ -1,4 +1,5 @@
 import { Flex, Img } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/images/blip-logo.svg";
 const Header: React.FC = () => {
   return (
@@ -9,7 +10,9 @@ const Header: React.FC = () => {
       alignItems="center"
       justifyContent="center"
     >
-      <Img src={logo} alt="Blip Logo" w="48px" />
+      <Link to="/">
+        <Img src={logo} alt="Blip Logo" w="48px" />
+      </Link>
     </Flex>
   );
 };
