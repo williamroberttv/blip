@@ -2,12 +2,14 @@ import { Box, Button, Divider, Flex, Img, Input, Text } from "@chakra-ui/react";
 import blockOrganizer from "../../assets/images/organize-blocks.png";
 import listOrganizer from "../../assets/images/organize-list.png";
 import GridSection from "../../components/GridSection";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../api/api";
 import { useBots } from "../../context/bots.context";
+import FlexSection from "../../components/FlexSection";
 
 const Home: React.FC = () => {
   const { addBots, filterBots } = useBots();
+  const [gridDisplay, setGridDisplay] = useState<Boolean>(true);
 
   const getBots = async () => {
     const { data } = await api.get("/bots");
@@ -71,6 +73,7 @@ const Home: React.FC = () => {
             cursor="pointer"
             mr="10px"
             _hover={{ opacity: 0.7 }}
+            onClick={() => setGridDisplay(true)}
           />
 
           <Img
@@ -79,6 +82,7 @@ const Home: React.FC = () => {
             h="32px"
             cursor="pointer"
             _hover={{ opacity: 0.7 }}
+            onClick={() => setGridDisplay(false)}
           />
         </Flex>
       </Flex>
@@ -86,9 +90,17 @@ const Home: React.FC = () => {
         <Text fontSize={32} fontWeight="bold" color="#56616E" mb="16px">
           Favorities
         </Text>
-        <GridSection section="favorities" />
+        {gridDisplay ? (
+          <GridSection section="favorities" />
+        ) : (
+          <FlexSection section="favorities" />
+        )}
         <Divider m="40px auto" />
-        <GridSection section="allBots" />
+        {gridDisplay ? (
+          <GridSection section="allBots" />
+        ) : (
+          <FlexSection section="allBots" />
+        )}
       </Flex>
     </Box>
   );

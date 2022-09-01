@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AddButton from "../components/AddButton";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { Toast } from "../components/toast";
@@ -15,6 +16,7 @@ const AppRoutes: React.FC = () => {
         <Route path="*" element={<h1>404</h1>} />
       </Routes>
       <Footer />
+      <AddButton />
       <Toast />
     </BrowserRouter>
   );

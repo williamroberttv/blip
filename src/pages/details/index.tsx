@@ -50,7 +50,13 @@ const Details: React.FC = () => {
         h="120px"
       >
         <Flex>
-          <Image src={messageIcon} w="56px" h="56px" mr="12px" />
+          <Image
+            src={botDetails ? botDetails?.image : messageIcon}
+            w="56px"
+            h="56px"
+            mr="12px"
+            borderRadius="50%"
+          />
           <Box w="100%">
             <Text fontSize="24px" fontWeight="bold" color="#52636C">
               {botDetails?.name}
@@ -70,13 +76,20 @@ const Details: React.FC = () => {
       <Flex>
         <Flex w="70%" flexDir="column">
           <Flex>
-            <CardDetails
+            <Flex
               width="30%"
-              value={botDetails?.analytics?.user?.total!}
-              description="Usuários ativos"
-              icon={userIcon}
-              margin={true}
-            />
+              padding="20px"
+              flexDir="column"
+              justifyContent="center"
+              bgColor="white"
+              borderRadius="8px"
+              h="212px"
+              boxShadow="0px 2px 12px 0px rgba(96, 123, 153, 0.15)"
+              mr="24px"
+              mt="24px"
+            >
+              <Text>{botDetails?.description}</Text>
+            </Flex>
             <CardDetails
               width="70%"
               value={botDetails?.analytics?.user?.total!}

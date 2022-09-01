@@ -5,6 +5,7 @@ export interface IBotDetails {
   culture: string;
   type: string;
   created: string;
+  description: string;
   analytics: {
     user: {
       total: number;
